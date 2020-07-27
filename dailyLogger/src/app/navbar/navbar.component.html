@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between fixed-top" >
+    <form class="form-inline">
+        <input class="form-control " type="search" placeholder="Search" aria-label="Search" style="border-radius:20px">
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      </form>
+    <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/fill">Fill Entry</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/view">View entry</a>
+    </li> -->
+   
+        <a class="nav-link" routerLink="/home"><img src="assets/d.svg" height="30px" alt=""></a>
+        <div class="dropdown mr-5">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Shadab
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" routerLink="./fill">Create an entry</a>
+              <a class="dropdown-item" routerLink="./view">Find an entry</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="#" (click)='logout()'>Logout</a>
+            </div>
+          </div>
+
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,23 @@
+
+
+<mat-drawer-container class="example-container" style="margin-top: 63px;"  >
+  <mat-drawer class="text-center" mode="side" opened  style="background-color: rgb(249, 249, 249);width: 15%;"> <div (click)="showThis($event)" style="border-top:0.5px black solid;border-bottom:0.5px black solid; padding: 10px 0px; " *ngFor="let item of list;let i=index" [attr.id]="i">
+  {{(!item.value.title)? (item.value.date|slice:0:10):(((item.value.title+'').length>10)? ((item.value.title| slice:0:7)+'...'):item.value.title)}}
+  </div></mat-drawer>
+  <mat-drawer-content style="background-color: white; padding-top: 5%;" *ngIf="received">
+    <div class="card text-white bg-dark mb-3 mx-auto text-center" style="max-width: 80%;">
+      <div class="card-header" id="dt">{{list[selected].value.date|slice:0:10}}</div>
+      <div class="card-body">
+        <h5 class="card-title" id="ttle">{{list[selected].value.title}}</h5>
+        <p class="card-text" id="entry" style="white-space: pre-line">{{list[selected].value.entry}}</p>
+      </div>
+      <div class="card-footer text-muted" >
+        <!-- {{(date|slice:9:10}}  -->
+        {{((date+'')|slice:9:10)-(list[selected].value.date|slice:9:10)}} days ago
+      </div>
+    </div>
+   
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

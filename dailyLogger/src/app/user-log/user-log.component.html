@@ -1,0 +1,37 @@
+
+<div class="card mb-3" style="max-width: 540px;
+    position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);">
+    <div class="row no-gutters">
+        <div class="col-md-6">
+            <img src="assets/cowritecar.webp" class="card-img" alt="..." height="100%">
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <div>
+                    <h4>Sign in</h4>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()" >
+                    <div class="form-group">
+                        <input type="text" formControlName="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="password" placeholder="Password">
+                        <a class="float-right" href="forgot.html">Forgot password?</a>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Sign in" class="btn btn-primary btn-lg">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                <ul id="errors"></ul>
+              </div>
+        </div>
+    </div>
+</div>
+<!-- </body>
+
+</html> -->

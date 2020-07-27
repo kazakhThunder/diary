@@ -1,0 +1,23 @@
+<div style=" margin-top: 100px;" >
+
+    <div class="card text-white bg-dark mb-3 mx-auto text-center" style="max-width: 50%;height: 600px;">
+        <div class="card-header">New entry</div>
+        <div class="card-body">
+
+            <form [formGroup]="entryForm" (ngSubmit)="submit(newEntry)" >
+                <!-- <textarea id="txt" name="entry" id="" cols="60" rows="10" style="display: inline-block;"></textarea><br> -->
+                <!-- <input type="submit" value="Submit"> -->
+                <input type="text" placeholder="A title for you entry?" formControlName="title" name="" id="abc" class="px-3" >
+                
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <textarea type="text" placeholder="Start writing here.." formControlName="entry" style="width: 500px; height: 400px" class="my-3"></textarea>
+                    <!-- <textarea name="" id="" cols="30" rows="10"> -->
+                <button  style="display: block;" class="mx-auto my-2" type="submit">Submit</button>
+                <input type="hidden" formControlName="author" class="px-3" >
+                
+            </form> </div>
+      </div>
+</div>
+
