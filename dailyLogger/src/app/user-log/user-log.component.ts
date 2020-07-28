@@ -33,7 +33,7 @@ export class UserLogComponent implements OnInit {
     }
     if (li !== null) {   return false;
     }
-    this.http.post('api/login', data).subscribe((recData: any) => {
+    this.http.post('api/users/login', data).subscribe((recData: any) => {
         this.router.navigate(['../home']);
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('name', recData.name );

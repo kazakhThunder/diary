@@ -9,8 +9,8 @@ export class LoggedInService {
   constructor(private router: Router) {
     console.log('Logged in Initialized...');
     window.onbeforeunload = () => {
-      localStorage.clear();
-      return 'Are you sure?';
+      // localStorage.clear();
+      // return 'Are you sure?';
     };
   }
 

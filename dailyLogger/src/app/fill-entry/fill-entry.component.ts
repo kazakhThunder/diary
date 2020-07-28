@@ -29,8 +29,16 @@ entryForm = new FormGroup({
 
   submit(form: NgForm) {
     const data = Object.assign(this.entryForm.value);
-    console.log(data);
-    this.http.post('/api/v1/users', data).subscribe(() => {
+    let li=null;
+    if (data.entry === null || data.entry.length < 1) {
+      li = document.createElement('li');
+      li.innerText = 'Entry is required.';
+      document.getElementById('errors').appendChild(li);
+    }
+    if (li !== null) {   return false;
+    }
+    document.getElementById('errors').innerHTML='';
+    this.http.post('/api/entries/fillEntry', data).subscribe(() => {
       console.log('Post request successful');
     }, error => {
       console.log('error');
@@ -49,7 +57,7 @@ entryForm = new FormGroup({
       if (!result.value) {
         this.router.navigate(['/home']);
       } else {
-        this.entryForm.setValue({entry: '', date: this.entryForm.value.date, title: ''});
+        this.entryForm.setValue({entry: '', date: this.entryForm.value.date, title: '', author: this.entryForm.value.author});
       }
     });
   }

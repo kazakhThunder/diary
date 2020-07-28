@@ -45,7 +45,7 @@ export class UserRegisterComponent implements OnInit {
     }
     if (li !== null) {   return false;
     }
-    this.http.post('api/register', data).subscribe((res) => {
+    this.http.post('api/users/register', data).subscribe((res) => {
       if (res === 0) {
         li = document.createElement('li');
         li.innerText = 'Username already taken.';

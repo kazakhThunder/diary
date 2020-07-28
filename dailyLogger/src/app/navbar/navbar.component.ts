@@ -6,7 +6,7 @@ import { LoggedInService } from '../logged-in.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  user=localStorage.getItem('name');
   constructor(private loggedInService: LoggedInService) { }
 
   ngOnInit() {

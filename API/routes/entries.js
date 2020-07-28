@@ -1,14 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var entryModel=require('./model.js');
-var passport=require('./passport');
-// router.use(bodyParser.urlencoded({
-//   extended: true
-// }));
-// router.use(bodyParser.json);
-/* GET users listing. */
-router.post('/', function(req, res, next) {
+var entryModel=require('../models/entryModel');
+var passport=require('../authentication/passport');
+
+router.post('/fillEntry', function(req, res, next) {
   const mongoose = require('mongoose');
   mongoose.connect('mongodb://localhost/users', {useNewUrlParser: true});
   const db = mongoose.connection;
@@ -23,14 +19,14 @@ router.post('/', function(req, res, next) {
 });
 });
 
-router.get('/', function(req, res, next) {
+router.get('/viewEntry', function(req, res, next) {
   const mongoose = require('mongoose');
   mongoose.connect('mongodb://localhost/users', {useNewUrlParser: true});
   const db = mongoose.connection;
   li=[];
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', function() {
-    entryModel.find(function (err, entry) {
+    entryModel.find({author:req.query.author},function (err, entry) {
       if (err) return console.error(err);
       for(var i=0;i<entry.length;i++)
       {
@@ -38,7 +34,7 @@ router.get('/', function(req, res, next) {
         li.push({key:"entry",value:object});
       }
       res.json(JSON.stringify(li));
-    })
+    });
 });
 });
 

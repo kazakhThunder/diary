@@ -32,7 +32,7 @@ export class ViewEntryComponent implements OnInit {
 }
 
   ngOnInit() {
-    this.http.get('/api/v1/users').subscribe(
+    this.http.get('/api/entries/viewEntry?author=' + localStorage.getItem('username')).subscribe(
       (data) => {
         const stringData = String(data);
         const servResponse = JSON.parse(stringData);
